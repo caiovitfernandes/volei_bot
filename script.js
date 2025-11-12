@@ -9,7 +9,7 @@ const mensagem = document.getElementById('mensagem');
 async function carregarJogadores() {
   listaJogadores.innerHTML = '<li>Carregando...</li>';
   try {
-    const resp = await fetch(`${API_BASE}/api/getPlayers`);
+    const resp = await fetch(`${API_BASE}/api/players`);
     if (!resp.ok) throw new Error('Erro ao buscar jogadores');
     const jogadores = await resp.json();
     exibirJogadores(jogadores);
@@ -39,7 +39,7 @@ btnAdicionar.addEventListener('click', async () => {
   const body = { nome };
 
   try {
-    const resp = await fetch(`${API_BASE}/api/addPlayer`, {
+    const resp = await fetch(`${API_BASE}/api/players`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
