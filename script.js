@@ -39,7 +39,7 @@ btnAdicionar.addEventListener('click', async () => {
   const body = { nome };
 
   try {
-    const resp = await fetch(`${API_BASE}/addPlayer`, {
+    const resp = await fetch(`/addPlayer`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
