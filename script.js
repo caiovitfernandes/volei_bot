@@ -1,5 +1,5 @@
 // URL base da API do Azure Static Web App (vamos ajustar depois)
-const API_BASE = 'https.://volei-bot-backend.azurewebsites.net';
+const API_BASE = 'https://volei-bot-backend.azurewebsites.net';
 
 const inputNome = document.getElementById('nome');
 const btnAdicionar = document.getElementById('btnAdicionar');
