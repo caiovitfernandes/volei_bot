@@ -1,5 +1,5 @@
 // URL base da API do Azure Static Web App (vamos ajustar depois)
-const API_BASE = 'volei-bot-backend.azurewebsites.net';
+const API_BASE = 'https.://volei-bot-backend.azurewebsites.net';
 
 const inputNome = document.getElementById('nome');
 const btnAdicionar = document.getElementById('btnAdicionar');
@@ -9,7 +9,7 @@ const mensagem = document.getElementById('mensagem');
 async function carregarJogadores() {
   listaJogadores.innerHTML = '<li>Carregando...</li>';
   try {
-    const resp = await fetch(`${API_BASE}/getPlayers`);
+    const resp = await fetch(`${API_BASE}/api/getPlayers`);
     if (!resp.ok) throw new Error('Erro ao buscar jogadores');
     const jogadores = await resp.json();
     exibirJogadores(jogadores);
@@ -39,7 +39,7 @@ btnAdicionar.addEventListener('click', async () => {
   const body = { nome };
 
   try {
-    const resp = await fetch(`/addPlayer`, {
+    const resp = await fetch(`${API_BASE}/api/addPlayer`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(body)
